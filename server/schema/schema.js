@@ -89,7 +89,7 @@ const mutation = new GraphQLObjectType({
             resolve(parent, args) {
                 const client = new Client({
                     name: args.name,
-                    emaile: args.email,
+                    email: args.email,
                     phone: args.phone,
                 });
 
