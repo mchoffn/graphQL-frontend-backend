@@ -1,6 +1,8 @@
 // Mongoose models
-const Client = require ('../models/Client');
-const Project = require ('../models/Project');
+
+/* const Client = require ('../models/Client');
+const Project = require ('../models/Project'); */
+
 const Dragon = require ('../models/Dragon');
 
 const { 
@@ -14,7 +16,7 @@ const {
 } = require('graphql');
 
 // Project type
-const ProjectType = new GraphQLObjectType({
+/* const ProjectType = new GraphQLObjectType({
     name: 'Project',
     fields: () => ({
         id: { type: GraphQLID }, 
@@ -28,7 +30,7 @@ const ProjectType = new GraphQLObjectType({
             }    
         }
     })
-});
+}); */
 
 // Dragon Type
 const DragonType = new GraphQLObjectType({
@@ -44,7 +46,7 @@ const DragonType = new GraphQLObjectType({
 });
 
 // Client type
-const ClientType = new GraphQLObjectType({
+/* const ClientType = new GraphQLObjectType({
     name: 'Client',
     fields: () => ({
         id: { type: GraphQLID }, 
@@ -52,12 +54,12 @@ const ClientType = new GraphQLObjectType({
         email: { type: GraphQLString }, 
         phone: { type: GraphQLString }
     })
-});
+}); */
 
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
-        projects: {
+        /* projects: {
             type: new GraphQLList(ProjectType),
             resolve(parent, args) {
                 return Project.find();
@@ -82,7 +84,7 @@ const RootQuery = new GraphQLObjectType({
             resolve(parent, args) {
                 return Client.findById(args.id);
             }
-        },
+        }, */
         dragons: {
             type: new GraphQLList(DragonType),
             resolve(parent, args) {
@@ -104,7 +106,7 @@ const mutation = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
         // Add a client
-        addClient: {
+       /*  addClient: {
             type: ClientType,
             args: {
                 name: { type: new GraphQLNonNull(GraphQLString) },
@@ -120,9 +122,9 @@ const mutation = new GraphQLObjectType({
 
                 return client.save();
             }
-        },
+        }, */
         // delete a client
-        deleteClient: {
+       /*  deleteClient: {
             type: ClientType,
             args: {
                 id: { type: new GraphQLNonNull(GraphQLID) },
@@ -135,7 +137,7 @@ const mutation = new GraphQLObjectType({
                 })
                 return Client.findByIdAndRemove(args.id);
             }
-        },
+        }, */
         // Add Dragon
         addDragon: {
             type: DragonType,
@@ -196,7 +198,7 @@ const mutation = new GraphQLObjectType({
             }
         },
         // Add a project
-        addProject: {
+        /* addProject: {
             type: ProjectType,
             args: {
                 name: { type: new GraphQLNonNull(GraphQLString) },
@@ -224,9 +226,9 @@ const mutation = new GraphQLObjectType({
 
                 return project.save();
             }
-        },
+        }, */
         // delete a project
-        deleteProject: {
+        /* deleteProject: {
             type: ProjectType,
             args: {
                 id: { type: new GraphQLNonNull(GraphQLID) }
@@ -234,9 +236,9 @@ const mutation = new GraphQLObjectType({
             resolve(parent, args) {
                 return Project.findByIdAndRemove(args.id)
             },
-        },
+        }, */
         // update a project
-        updateProject: {
+        /* updateProject: {
             type: ProjectType,
             args: {
                 id: { type: new GraphQLNonNull(GraphQLID) },
@@ -266,7 +268,7 @@ const mutation = new GraphQLObjectType({
                     { new: true}
                 );
             }
-        }
+        } */
     }
 });
 
