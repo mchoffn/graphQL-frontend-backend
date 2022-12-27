@@ -43,7 +43,7 @@ export default function AddDragonModal() {
 
     return (
         <>
-            <button style={{backgroundColor: "#FFAE5E"}} type="button" className="btn" data-bs-toggle="modal" data-bs-target="#addDragonModal">
+            <button style={{backgroundColor: "#FFAE5E"}} type="button" className="btn addDragonBtn" data-bs-toggle="modal" data-bs-target="#addDragonModal">
             <div className="d-flex align-items-center">
                 <FaDragon className="icon" />
                 <div>Add Dragon</div>

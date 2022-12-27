@@ -11,7 +11,7 @@ const {
     GraphQLID, 
     GraphQLString, 
     GraphQLList, 
-    GraphQLEnumType,
+    //GraphQLEnumType, this is used for the projects
     GraphQLNonNull
 } = require('graphql');
 

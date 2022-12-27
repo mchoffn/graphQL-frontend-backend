@@ -2,7 +2,7 @@ import { Header } from "./components/Header";
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import Home from './pages/Home';
-import Project from './pages/Project';
+import Dragon from './pages/Dragon';
 import NotFound from './pages/NotFound';
 
 const cache = new InMemoryCache({
@@ -14,7 +14,7 @@ const cache = new InMemoryCache({
             return incoming;
           }
         },
-        projects: {
+        dragons: {
           merge(existing, incoming) {
             return incoming;
           }
@@ -38,7 +38,7 @@ function App() {
           <div className="container">
             <Routes>
              <Route path="/" element={<Home />} />
-             <Route path="/projects/:id" element={<Project />} />
+             <Route path="/dragons/:id" element={<Dragon />} />
              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
