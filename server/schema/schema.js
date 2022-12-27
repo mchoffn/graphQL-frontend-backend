@@ -1,8 +1,7 @@
- // const { projects, clients } = require('../sampleData.js');
-
 // Mongoose models
 const Client = require ('../models/Client');
 const Project = require ('../models/Project');
+const Dragon = require ('../models/Dragon');
 
 const { 
     GraphQLObjectType,
@@ -28,6 +27,19 @@ const ProjectType = new GraphQLObjectType({
                 return Client.findById(parent.clientId);
             }    
         }
+    })
+});
+
+// Dragon Type
+const DragonType = new GraphQLObjectType({
+    name: 'Dragon',
+    fields: () => ({
+        id: { type: GraphQLID },
+        name: { type: GraphQLString },
+        fish: { type: GraphQLString },
+        wood: { type: GraphQLString },
+        iron: { type: GraphQLString },
+        gatheringTime: { type: GraphQLString },
     })
 });
 
@@ -70,7 +82,20 @@ const RootQuery = new GraphQLObjectType({
             resolve(parent, args) {
                 return Client.findById(args.id);
             }
-        }
+        },
+        dragons: {
+            type: new GraphQLList(DragonType),
+            resolve(parent, args) {
+                return Dragon.find();
+            }
+        },
+        dragon: {
+            type: DragonType,
+            args: { id: { type: GraphQLID } },
+            resolve(parent, args) {
+                return Dragon.findById(args.id);
+            }
+        },
     }
 });
 
@@ -109,6 +134,65 @@ const mutation = new GraphQLObjectType({
                     });
                 })
                 return Client.findByIdAndRemove(args.id);
+            }
+        },
+        // Add Dragon
+        addDragon: {
+            type: DragonType,
+            args: { 
+                name: { type: new GraphQLNonNull(GraphQLString) },
+                fish: { type: new GraphQLNonNull(GraphQLString) },
+                wood: { type: new GraphQLNonNull(GraphQLString) },
+                iron: { type: new GraphQLNonNull(GraphQLString) },
+                gatheringTime: { type: new GraphQLNonNull(GraphQLString) }
+            },
+            resolve(parent, args) {
+                const dragon = new Dragon({
+                    name: args.name,
+                    fish: args.fish,
+                    wood: args.wood,
+                    iron: args.iron,
+                    gatheringTime: args.gatheringTime,
+                });
+
+                return dragon.save();
+            },
+        },
+        // Delete Dragon
+        deleteDragon: {
+            type: DragonType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLID) }
+            },
+            resolve(parent, args) {
+                return Dragon.findByIdAndRemove(args.id);
+            }
+        },
+        // Update a dragon
+        updateDragon: {
+            type: DragonType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLID) },
+                name: { type: GraphQLString },
+                fish: { type: GraphQLString },
+                wood: { type: GraphQLString },
+                iron: { type: GraphQLString },
+                gatheringTime: { type: GraphQLString },
+            },
+            resolve(parent, args) {
+                return Dragon.findByIdAndUpdate(
+                    args.id,
+                    {
+                        $set: {
+                            name: args.name,
+                            fish: args.fish,
+                            wood: args.wood,
+                            iron: args.iron,
+                            gatheringTime: args.gatheringTime,
+                        }
+                    },
+                    { new: true}
+                );
             }
         },
         // Add a project

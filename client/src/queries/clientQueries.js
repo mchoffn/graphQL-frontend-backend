@@ -8,7 +8,6 @@ const GET_CLIENTS = gql`
             email
             phone
         }
-
     }
 `;
 
