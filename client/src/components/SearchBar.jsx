@@ -15,7 +15,7 @@ const SearchBar = ({dragons, setSearchDragons}) => {
     }
 
     return (
-        <div className="align-items-center col-md-4">
+        <div className="align-items-center col-md-4 searchBar">
             <input 
                 type="text" 
                 className="form-control" 

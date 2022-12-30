@@ -13,7 +13,11 @@ code {
 }
 
 .navbar-brand {
-  color: #df3ca6;
+  color: #040079;
+}
+
+.navbar-brand:hover {
+  color: #ffae5e;
 }
 
 .navbar-brand img {
@@ -25,14 +29,8 @@ code {
   font-size: 15px;
 }
 
-.btn-primary,
-.bg-primary {
-  background-color: #df3ca6 !important;
-  border: none;
-}
-
 .btn-primary:hover {
-  background-color: #df3ca6;
+  background-color: #ffae5e;
   opacity: 0.9;
 }
 
@@ -57,4 +55,22 @@ code {
 
 .addDragonBtn{
   height: fit-content;
+}
+
+.searchBar{
+  padding: 0 0 0 1rem
+}
+
+.dragonStatsIcon {
+  height: 18px;
+  width: 22px;
+}
+
+.rowStats{
+  display: flex;
+  align-items: center;
+}
+
+.card-text{
+  margin-left:20px;
 }
