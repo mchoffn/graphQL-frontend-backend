@@ -12,7 +12,7 @@ export default function Dragons() {
   return (
     <>
       {data.dragons.length > 0 ? (
-        <div className='row mt-4'>
+        <div className='row dragonCardContainer d-flex justify-content-around'>
           {data.dragons.map((dragon) => (
             <DragonCard key={dragon.id} dragon={dragon} />
           ))}

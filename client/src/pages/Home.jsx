@@ -8,7 +8,6 @@ export default function Home() {
       <div className="header">
         <AddDragonModal />
       </div>
-      
       <Dragons />
     </> 
   )
