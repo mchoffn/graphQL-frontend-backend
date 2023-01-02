@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import logo from './assets/toothless.png';
 import { useNavigate } from "react-router-dom";
 

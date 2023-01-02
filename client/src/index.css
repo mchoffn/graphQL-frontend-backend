@@ -1,12 +1,3 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 #root{
   margin:0;
   padding:0;
@@ -14,19 +5,26 @@ body {
   background-image: url("../src/components/assets/toothless_background.jpg");
   background-position: center;
   background-size: cover;
+
+  --primaryColor: #ffae5e;
+  --secondaryColor: #fea44a;
+  --primaryTextColor: #040079;
+  --primaryBorderColor: 2px solid white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Kameron', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .navbar-brand {
-  color: #040079;
+  color: var(--primaryTextColor);
 }
 
 .navbar-brand:hover {
-  color: #ffae5e;
+  color: var(--primaryColor);
   cursor:pointer;
 }
 
@@ -40,16 +38,7 @@ code {
 }
 
 .btn-primary:hover {
-  background-color: #ffae5e;
-  opacity: 0.9;
-}
-
-.btn-secondary {
-  background-color: #7430f9;
-}
-
-.btn-secondary:hover {
-  background-color: #7430f9;
+  background-color: var(--primaryColor);
   opacity: 0.9;
 }
 
@@ -65,9 +54,33 @@ code {
 
 .addDragonBtn{
   height: fit-content;
+  color: var(--primaryTextColor);
+  font-size: large;
 }
 
+.addDragonBtn:hover{
+  border: 1px solid white;
+  color: var(--primaryTextColor)
+}
 
+fieldset {
+  border: var(--primaryBorderColor) !important;
+}
+
+#grouped-demo-label{
+  color: var(--primaryTextColor);
+  font-family: 'Kameron', sans-serif;
+  font-size: large;
+}
+
+div.MuiFormControl-root{
+  background-color: var(--primaryColor);
+  border-radius: 4px;
+}
+
+div.MuiInputBase-root{
+  color: var(--primaryTextColor);
+}
 .dragonStatsIcon {
   height: 25px;
   width: 25px;
@@ -89,12 +102,18 @@ code {
 }
 
 .dragonCardIndividual{
-  border-color: aliceblue!important;
-  background-color: #ffae5e!important;
+  font-family: 'Kameron', sans-serif!important;
+  font-size: large;
+  background-color: var(--primaryColor)!important;
+  color: var(--primaryTextColor)!important;
   max-width: 18%;
   text-align: center;
   border-radius: 30px!important;
-  border: 2px solid white;
+  border: var(--primaryBorderColor);
+}
+
+.dragonCardIndividual p {
+  font-family: 'Kameron', sans-serif!important;
 }
 
 .dragonCardIndividual:hover{
@@ -106,4 +125,9 @@ code {
 .dragonImage{
   box-shadow: -1px 6px 12px 1px rgba(69,69,69,0.49);
   border-radius: 10px;
+  margin-bottom: 0.4rem;
+}
+
+.dragonStatsInfo{
+  margin-left: 1rem;
 }
