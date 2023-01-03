@@ -4,6 +4,9 @@ const DragonSchema = new mongoose.Schema({
     name: {
         type: String,
     },
+    family: {
+        type: String,
+    },
     fish: {
         type: String,
     },

@@ -5,6 +5,7 @@ const GET_DRAGONS = gql`
         dragons {
             id
             name
+            family
             fish
             wood
             iron
@@ -18,6 +19,7 @@ const GET_DRAGON = gql`
         dragon(id: $id) {
             id
             name
+            family
             fish
             wood
             iron

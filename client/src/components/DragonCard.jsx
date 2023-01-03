@@ -22,31 +22,36 @@ export default function DragonCard({ dragon }) {
         <Typography>
           <img className='dragonImage' src={scardian} width={120} height={120} alt="" />
         </Typography>
-        <Typography variant="h5 dragonName">
-          <div className='d-flex justify-content-center'>
+        <Typography>
+          <div className='d-flex justify-content-center dragonName'>
             {dragon.name}
           </div>
         </Typography>
+        <Typography>
+          <div className='d-flex justify-content-center dragonFamily dragonRow'>
+            {dragon.family}
+          </div>
+        </Typography>
         <Typography className=''>
-          <div className='d-flex'>
+          <div className='d-flex dragonRow'>
             <img src={fish} alt="" className="dragonStatsIcon" />
             <span className='dragonStatsInfo'>{dragon.fish}</span>
           </div>
         </Typography>
         <Typography>
-          <div className='d-flex'>
+          <div className='d-flex dragonRow'>
             <img src={wood} alt="" className="dragonStatsIcon" />
             <span className='dragonStatsInfo'>{dragon.wood}</span>
           </div>
         </Typography>
         <Typography>
-          <div className='d-flex'>
+          <div className='d-flex dragonRow'>
             <img src={iron} alt="" className="dragonStatsIcon" />
             <span className='dragonStatsInfo'>{dragon.iron}</span>
           </div>
         </Typography>
         <Typography>
-          <div className='d-flex'>
+          <div className='d-flex dragonRow'>
             <img src={gatheringTime} alt="" className="dragonStatsIcon" />
             <span className='dragonStatsInfo'>{dragon.gatheringTime}</span>
           </div>

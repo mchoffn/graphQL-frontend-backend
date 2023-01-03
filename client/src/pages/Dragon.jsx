@@ -20,6 +20,7 @@ export default function Dragon() {
             </Link>
     
             <h1>{data.dragon.name}</h1>
+            <p>{data.dragon.family}</p>
             <p>{data.dragon.fish}</p>
             <p>{data.dragon.wood}</p>
             <p>{data.dragon.iron}</p>

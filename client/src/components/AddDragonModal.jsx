@@ -6,13 +6,14 @@ import { GET_DRAGONS } from "../queries/dragonQueries";
 
 export default function AddDragonModal() {
     const [name, setName] = useState('');
+    const [family, setFamily] = useState('');
     const [fish, setFish] = useState('');
     const [wood, setWood] = useState('');
     const [iron, setIron] = useState('');
     const [gatheringTime, setGatheringTime] = useState('');
 
     const [addDragon] = useMutation(ADD_DRAGON, {
-        variables: {name, fish, wood, iron, gatheringTime},
+        variables: {name, family, fish, wood, iron, gatheringTime},
         update(cache, { data: { addDragon} }) {
             const { dragons } = cache.readQuery({
                 query: GET_DRAGONS });
@@ -26,19 +27,20 @@ export default function AddDragonModal() {
 
     const onSubmit = (e) => { 
         e.preventDefault();
-        if(name === '' || fish === '' || wood === '' || iron === '' || gatheringTime === '') {
+        if(name === '' || family === '' || fish === '' || wood === '' || iron === '' || gatheringTime === '') {
             return alert('Please fill in all the fields')
         }
 
-        addDragon(name, fish, wood, iron, gatheringTime);
+        addDragon(name, family, fish, wood, iron, gatheringTime);
 
         setName('');
+        setFamily('');
         setFish('');
         setWood('');
         setIron('');
         setGatheringTime('');
 
-        console.log(name, fish, wood, iron, gatheringTime);
+        console.log(name, family, fish, wood, iron, gatheringTime);
     }
 
     return (
@@ -64,6 +66,12 @@ export default function AddDragonModal() {
                                 Name
                             </label>
                             <input type="text" className="form-control" id="name" value={name} onChange={ (e) => setName(e.target.value)} />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">
+                                Dragon Family
+                            </label>
+                            <input type="text" className="form-control" id="family" value={family} onChange={ (e) => setFamily(e.target.value)} />
                         </div>
                         <div className="mb-3">
                             <label className="form-label">

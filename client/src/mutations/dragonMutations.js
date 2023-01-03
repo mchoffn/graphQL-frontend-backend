@@ -1,9 +1,10 @@
 import { gql } from "@apollo/client";
 
 const ADD_DRAGON = gql`
-  mutation addDragon($name: String!, $fish: String!, $wood: String!, $iron: String!, $gatheringTime: String!) {
+  mutation addDragon($name: String!, $family: String!, $fish: String!, $wood: String!, $iron: String!, $gatheringTime: String!) {
     addDragon(
       name: $name,
+      family: $family,
       fish: $fish,
       wood: $wood,
       iron: $iron,
@@ -11,6 +12,7 @@ const ADD_DRAGON = gql`
     ) {
       id
       name
+      family
       fish
       wood
       iron
@@ -31,6 +33,7 @@ const UPDATE_DRAGON = gql`
   mutation updateDragon(
     $id: ID!
     $name: String!
+    $family: String!
     $fish: String!
     $wood: String!
     $iron: String!
@@ -39,6 +42,7 @@ const UPDATE_DRAGON = gql`
     updateDragon(
       id: $id
       name: $name
+      family: $family
       fish: $fish
       wood: $wood
       iron: $iron
@@ -46,6 +50,7 @@ const UPDATE_DRAGON = gql`
     ) {
       id
       name
+      family
       fish
       wood
       iron

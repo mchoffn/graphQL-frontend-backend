@@ -5,6 +5,7 @@
   background-image: url("../src/components/assets/toothless_background.jpg");
   background-position: center;
   background-size: cover;
+  font-family: 'Kameron', sans-serif;
 
   --primaryColor: #ffae5e;
   --secondaryColor: #fea44a;
@@ -14,7 +15,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Kameron', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Kameron', sans-serif!important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -58,6 +59,10 @@ body {
   font-size: large;
 }
 
+.dragonRow{
+  margin-top: 8px;
+}
+
 .addDragonBtn:hover{
   border: 1px solid white;
   color: var(--primaryTextColor)
@@ -74,12 +79,17 @@ fieldset {
 }
 
 div.MuiFormControl-root{
+  margin-bottom: 10px;
   background-color: var(--primaryColor);
   border-radius: 4px;
 }
 
 div.MuiInputBase-root{
   color: var(--primaryTextColor);
+}
+
+div.MuiCardContent-root{
+  padding-bottom: 0.8rem!important;
 }
 .dragonStatsIcon {
   height: 25px;
@@ -96,6 +106,8 @@ div.MuiInputBase-root{
 }
 
 .dragonCardContainer{
+  overflow:auto;
+  max-height: 86vh;
   justify-content: space-evenly;
   column-gap: 1rem;
   padding:0.2rem;
@@ -112,7 +124,7 @@ div.MuiInputBase-root{
   border: var(--primaryBorderColor);
 }
 
-.dragonCardIndividual p {
+.dragonCardIndividual p span {
   font-family: 'Kameron', sans-serif!important;
 }
 
@@ -130,4 +142,36 @@ div.MuiInputBase-root{
 
 .dragonStatsInfo{
   margin-left: 1rem;
+}
+
+.dragonFamily{
+  font-size: medium;
+  font-weight: 300;
+  font-family: 'Kameron', sans-serif!important;
+}
+
+.dragonName{
+  font-size: large;
+  font-weight: 600;
+  font-family: 'Kameron', sans-serif!important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }

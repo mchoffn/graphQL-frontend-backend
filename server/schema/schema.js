@@ -38,6 +38,7 @@ const DragonType = new GraphQLObjectType({
     fields: () => ({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
+        family: { type: GraphQLString },
         fish: { type: GraphQLString },
         wood: { type: GraphQLString },
         iron: { type: GraphQLString },
@@ -143,6 +144,7 @@ const mutation = new GraphQLObjectType({
             type: DragonType,
             args: { 
                 name: { type: new GraphQLNonNull(GraphQLString) },
+                family: { type: new GraphQLNonNull(GraphQLString) },
                 fish: { type: new GraphQLNonNull(GraphQLString) },
                 wood: { type: new GraphQLNonNull(GraphQLString) },
                 iron: { type: new GraphQLNonNull(GraphQLString) },
@@ -151,6 +153,7 @@ const mutation = new GraphQLObjectType({
             resolve(parent, args) {
                 const dragon = new Dragon({
                     name: args.name,
+                    family: args.family,
                     fish: args.fish,
                     wood: args.wood,
                     iron: args.iron,
@@ -176,6 +179,7 @@ const mutation = new GraphQLObjectType({
             args: {
                 id: { type: new GraphQLNonNull(GraphQLID) },
                 name: { type: GraphQLString },
+                family: { type: GraphQLString },
                 fish: { type: GraphQLString },
                 wood: { type: GraphQLString },
                 iron: { type: GraphQLString },
@@ -187,6 +191,7 @@ const mutation = new GraphQLObjectType({
                     {
                         $set: {
                             name: args.name,
+                            family: args.family,
                             fish: args.fish,
                             wood: args.wood,
                             iron: args.iron,
