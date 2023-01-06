@@ -6,14 +6,14 @@ export default function Home() {
   const [ search, setSearch ] = React.useState('');
   console.log(search);
 
-  const handleChange = (event) => {
+  const searchForDragons = (event) => {
     setSearch(event.target.value);
   };
   return (
     <>
       <div className="header">
         <AddDragonModal />
-        <input placeholder='Search Dragons' value={search} onChange={handleChange} />
+        <input className='searchDragons' placeholder='Search Dragons' value={search} onChange={searchForDragons} />
       </div>
       <Dragons search={search} />
     </> 
