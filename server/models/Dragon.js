@@ -19,6 +19,7 @@ const DragonSchema = new mongoose.Schema({
     gatheringTime: {
         type: String,
     },
+    // 
 });
 
 module.exports = mongoose.model('Dragon', DragonSchema);
