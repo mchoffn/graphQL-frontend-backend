@@ -24,6 +24,12 @@ export default function AddDragonModal() {
                 });
         }
     })
+    
+    const [file, setFile] = useState();
+    function handleChange(e) {
+        console.log(e.target.files);
+        setFile(URL.createObjectURL(e.target.files[0]));
+    }
 
     const onSubmit = (e) => { 
         e.preventDefault();
@@ -39,8 +45,6 @@ export default function AddDragonModal() {
         setWood('');
         setIron('');
         setGatheringTime('');
-
-        console.log(name, family, fish, wood, iron, gatheringTime);
     }
 
     return (
@@ -71,7 +75,9 @@ export default function AddDragonModal() {
                             <label className="form-label">
                                 Dragon Family
                             </label>
-                            <input type="text" className="form-control" id="family" value={family} onChange={ (e) => setFamily(e.target.value)} />
+                            <input 
+                                type="text" className="form-control" 
+                                id="family" value={family} onChange={ (e) => setFamily(e.target.value)} />
                         </div>
                         <div className="mb-3">
                             <label className="form-label">
@@ -97,7 +103,15 @@ export default function AddDragonModal() {
                             </label>
                             <input type="text" className="form-control" id="gatheringTime" value={gatheringTime} onChange={ (e) => setGatheringTime(e.target.value)} />
                         </div>
-    
+
+                        <div className="App">
+                        <h2>Add Image:</h2>
+                        <input type="file" onChange={handleChange} />
+                        <img src={file} alt="" width={120} height={120} />
+                
+        </div>
+
+
                         <button data-bs-dismiss="modal" className="btn" style={{backgroundColor: "#FFAE5E"}} type="submit">Submit</button>
     
                     </form>
