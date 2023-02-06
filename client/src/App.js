@@ -2,6 +2,8 @@ import { Header } from "./components/Header";
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
 import Dragon from './pages/Dragon';
 import NotFound from './pages/NotFound';
 
@@ -37,7 +39,9 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
-             <Route path="/" element={<Home />} />
+             <Route path="/login" element={<Login />} />
+             <Route path="/register" element={<Register />} />
+             <Route path="/home" element={<Home />} />
              <Route path="/dragons/:id" element={<Dragon />} />
              <Route path="*" element={<NotFound />} />
             </Routes>
